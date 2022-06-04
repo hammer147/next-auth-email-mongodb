@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       <>
         Signed in as {session!.user!.email} <br />
         <button onClick={() => signOut()}>Sign out</button>
-        <Link href='/protected'>
+        <Link href='/protected-page'>
           <a>Go to protected page</a>
         </Link>
       </>
