@@ -28,3 +28,6 @@ export default NextAuth({
     })
   ]
 })
+
+
+// https://next-auth.js.org/configuration/callbacks
