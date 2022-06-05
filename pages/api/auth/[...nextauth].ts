@@ -26,8 +26,19 @@ export default NextAuth({
       from: process.env.EMAIL_FROM
       // maxAge: 24 * 60 * 60, // How long email links are valid for (default 24h)
     })
-  ]
+  ],
+  // https://next-auth.js.org/configuration/callbacks
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role
+      }
+      return token
+    },
+    async session({ session, token }) {
+      session.user.role = token.role as string // Add role value to user object so it is passed along with session
+      // We need to create types/next-auth.d.ts to add role to the user object type
+      return session
+    }
+  }
 })
-
-
-// https://next-auth.js.org/configuration/callbacks

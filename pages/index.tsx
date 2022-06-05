@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <a>Sign in</a>
       </Link> */}
 
-      <Link href='/protected'>
+      <Link href='/protected-page'>
         <a>Go to protected page</a>
       </Link>
 

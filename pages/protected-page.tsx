@@ -7,7 +7,7 @@ const ProtectedPage = () => {
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
-      signIn()
+      signIn() // or use the router to navigate to signin
       // router.push('/api/auth/signin')
     }
   })
