@@ -29,7 +29,14 @@ const MainNavigation: FC = () => {
             </li>
           )}
 
-          {session && (session.user.role === 'admin') && (
+          {/* {session && ((session.user.role === 'member') || (session.user.role === 'admin')) && ( */}
+          {session?.user.role && (['member', 'admin']).includes(session.user.role) && (
+            <li>
+              <Link href="/member">Member</Link>
+            </li>
+          )}
+
+          {(session?.user.role === 'admin') && (
             <li>
               <Link href="/admin">Admin</Link>
             </li>
