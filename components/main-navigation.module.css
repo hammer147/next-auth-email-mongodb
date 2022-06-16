@@ -1,11 +1,9 @@
-/* https://coolors.co/a0ddff-758ecd-c1cefe-7189ff-624cab */
-
 .header {
   width: 100%;
   height: 5rem;
-  color:#A0DDFF;
-  background-color: #624CAB;
-  box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.5);
+  color: var(--theme-color-light);
+  background-color: var(--theme-color-dark);
+  box-shadow: inset 0px 0px 25px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,10 +11,12 @@
 }
 
 .logo {
-  font-family: 'Lato', sans-serif;
-  font-size: 2rem;
-  color: #C1CEFE;
+  font-family: var(--logo-font-family);
+  font-size: 3rem;
+  color: var(--logo-color);
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .header ul {
@@ -33,15 +33,15 @@
 
 .header a {
   text-decoration: none;
-  color: #C1CEFE;
+  color: var(--theme-color-light);
   font-weight: bold;
 }
 
 .header button {
   font: inherit;
   background-color: transparent;
-  border: 1px solid #C1CEFE;
-  color: #C1CEFE;
+  border: 1px solid var(--theme-color-light);
+  color: var(--theme-color-light);
   font-weight: bold;
   padding: 0.5rem 1.5rem;
   border-radius: 6px;
@@ -49,10 +49,10 @@
 }
 
 .header a:hover {
-  color: #7189FF;
+  color: var(--theme-color-middle);
 }
 
 .header button:hover {
-  background-color: #C1CEFE;
-  color: #624CAB;
+  background-color: var(--theme-color-light);
+  color: var(--theme-color-dark);
 }

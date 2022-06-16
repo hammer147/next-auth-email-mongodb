@@ -1,6 +1,19 @@
+:root {
+  --theme-color-light: #C1CEFE;
+  --theme-color-middle: #7189FF;
+  --theme-color-dark: #624CAB;
+  --body-color-background: black;
+  --body-color: white;
+  --logo-color: rgb(213, 55, 55);
+  --logo-font-family: 'Brush Script MT';
+}
+
+/* https://coolors.co/a0ddff-758ecd-c1cefe-7189ff-624cab */
+
 html,
 body {
-  background-color: #A0DDFF;
+  background-color: var(--body-color-background);
+  color: var(--body-color);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,

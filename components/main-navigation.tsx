@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import styles from './main-navigation.module.css'
 
@@ -10,7 +11,15 @@ const MainNavigation: FC = () => {
     <header className={styles.header}>
       <Link href="/">
         <a>
-          <div className={styles.logo}>Home</div>
+          <div className={styles.logo}>
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={80}
+              height={80}
+            />
+            Brand Name
+          </div>
         </a>
       </Link>
       <nav>

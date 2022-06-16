@@ -40,5 +40,10 @@ export default NextAuth({
       // We need to create types/next-auth.d.ts to add role to the user object type
       return session
     }
+  },
+  theme: {
+    colorScheme: "dark", // "auto" | "dark" | "light"
+    brandColor: "", // Hex color code
+    logo: "/logo.png" // Absolute URL to image
   }
 })
