@@ -51,3 +51,8 @@ EMAIL_FROM="mynameoranalias@example.com"
 # EMAIL_SERVER_PORT="587"
 # EMAIL_FROM="mygmailusername@gmail.com"
 ```
+
+Note that NextAuth.js comes with default pages to sign in, sign out, etc.
+These pages can tweaked a little via the theme option as shown in this demo (brand color, logo, ...).
+In a real application however, you will probably want to use your own pages.
+This is very easy and is well explained in the [docs](https://next-auth.js.org/configuration/pages)
