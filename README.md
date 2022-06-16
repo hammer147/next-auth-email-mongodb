@@ -1,6 +1,6 @@
-# Passwordless authentication with NextAuth Email and MongoDB
+# Passwordless Authentication in Next.js with NextAuth.js Email and MongoDB
 
-This Nextjs project written in Typescript demonstrates the use of NextAuth.js v4 for passwordless authentication.
+This Next.js project written in Typescript demonstrates the use of NextAuth.js v4 for passwordless authentication.
 It also shows how to add role-based authorization to protect certain routes via middleware.
 
 - it stores an encrypted JWT (JWE) in the session cookie
@@ -55,4 +55,4 @@ EMAIL_FROM="mynameoranalias@example.com"
 Note that NextAuth.js comes with default pages to sign in, sign out, etc.
 These pages can tweaked a little via the theme option as shown in this demo (brand color, logo, ...).
 In a real application however, you will probably want to use your own pages.
-This is very easy and is well explained in the [docs](https://next-auth.js.org/configuration/pages)
+This is very easy and is well explained in the [docs](https://next-auth.js.org/configuration/pages).
