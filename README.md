@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Passwordless authentication with NextAuth Email and MongoDB
 
-## Getting Started
+This Nextjs project written in Typescript demonstrates the use of NextAuth.js v4 for passwordless authentication.
+It also shows how to add role-based authorization to protect certain routes via middleware.
 
-First, run the development server:
+- it stores an encrypted JWT (JWE) in the session cookie
+- uses the Email provider that sends "magic links" via email that the user can click on to sign in
+- uses MongoDB as a database
 
-```bash
-npm run dev
-# or
-yarn dev
+It has a layout component that wraps the app to provide the main navigation.
+The items shown in the navigation depend on the user's authentication (signed in or not) and authorization (user.role):
+
+- the home page: is public and can be accessed by unauthenticated users
+- the protected page: can only be accessed by authenticated users
+- the member page: can only be accessed by authenticated users that have a role of member or admin
+- the admin page: can only be accessed by authenticated users that have a role of admin
+
+These routes are protected via middleware (run at the Edge).
+
+The environmental variables (.env.local) needed:
+
+```md
+# Create a db with a users collection
+# Replace <username>, <password>, <dbname> in the string below:
+# MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.ul1xj.mongodb.net/<dbname>?retryWrites=true&w=majority"
+MONGODB_URI=""
+
+# In production, change this to the real URL.
+# When you deploy to Vercel you don't have to define this variable if 
+# "Automatically expose System Environment Variables" is checked in your Project Settings.
+# https://next-auth.js.org/configuration/options
+NEXTAUTH_URL="http://localhost:3000"
+
+# Random Secret - You can make one with $ openssl rand -base64 32
+# Use a Git Bash terminal if the command doesn't work
+# https://next-auth.js.org/configuration/options
+NEXTAUTH_SECRET=""
+
+# SMTP outgoing server
+# EMAIL_FROM must be same as EMAIL_SERVER_USER (or an alias)
+EMAIL_SERVER_USER="myname@example.com"
+EMAIL_SERVER_PASSWORD="mypassword"
+EMAIL_SERVER_HOST="smtp.example.com"
+EMAIL_SERVER_PORT="587"
+EMAIL_FROM="mynameoranalias@example.com"
+
+# SMTP Example for Gmail
+# EMAIL_SERVER_USER="mygmailusername@gmail.com"
+# EMAIL_SERVER_PASSWORD="mygmailpassword"
+# EMAIL_SERVER_HOST="smtp.gmail.com"
+# EMAIL_SERVER_PORT="587"
+# EMAIL_FROM="mygmailusername@gmail.com"
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
