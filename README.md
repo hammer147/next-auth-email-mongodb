@@ -17,9 +17,9 @@ The items shown in the navigation depend on the user's authentication (signed in
 
 These routes are protected via middleware (run at the Edge).
 
-The environmental variables (.env.local) needed:
+## The environmental variables (.env.local) needed:
 
-```md
+```env
 # Create a db with a users collection
 # Replace <username>, <password>, <dbname> in the string below:
 # MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.ul1xj.mongodb.net/<dbname>?retryWrites=true&w=majority"
@@ -38,15 +38,15 @@ NEXTAUTH_SECRET=""
 
 # SMTP outgoing server
 # EMAIL_FROM must be same as EMAIL_SERVER_USER (or an alias)
-EMAIL_SERVER_USER="myname@example.com"
-EMAIL_SERVER_PASSWORD="mypassword"
-EMAIL_SERVER_HOST="smtp.example.com"
+EMAIL_SERVER_USER=""
+EMAIL_SERVER_PASSWORD=""
+EMAIL_SERVER_HOST=""
 EMAIL_SERVER_PORT="587"
-EMAIL_FROM="mynameoranalias@example.com"
+EMAIL_FROM=""
 
 # SMTP Example for Gmail
 # EMAIL_SERVER_USER="mygmailusername@gmail.com"
-# EMAIL_SERVER_PASSWORD="mygmailpassword"
+# EMAIL_SERVER_PASSWORD="MyGmailPassword"
 # EMAIL_SERVER_HOST="smtp.gmail.com"
 # EMAIL_SERVER_PORT="587"
 # EMAIL_FROM="mygmailusername@gmail.com"
