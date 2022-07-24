@@ -17,12 +17,12 @@ The items shown in the navigation depend on the user's authentication (signed in
 
 These routes are protected via middleware (run at the Edge).
 
-## The environmental variables (.env.local) needed:
+## The environmental variables (.env.local) needed
 
 ```env
 # Create a db with a users collection
 # Replace <username>, <password>, <dbname> in the string below:
-# MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.ul1xj.mongodb.net/<dbname>?retryWrites=true&w=majority"
+# MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/<dbname>?retryWrites=true&w=majority"
 MONGODB_URI=""
 
 # In production, change this to the real URL.
@@ -32,6 +32,7 @@ MONGODB_URI=""
 NEXTAUTH_URL="http://localhost:3000"
 
 # Random Secret - You can make one with $ openssl rand -base64 32
+# When using JWT, you need to generate a HS512 key: $ openssl rand -base64 172 | tr -d '\n'
 # Use a Git Bash terminal if the command doesn't work
 # https://next-auth.js.org/configuration/options
 NEXTAUTH_SECRET=""
